@@ -16,14 +16,14 @@ func create_button(name: String, action: String, pos: Vector2, size: Vector2, co
 	# Draw background
 	var color_rect = ColorRect.new()
 	color_rect.color = color
-	color_rect.set_anchors_preset(PRESET_FULL_RECT)
+	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	btn.add_child(color_rect)
 	
 	# Draw label
 	var label = Label.new()
 	label.text = name
-	label.set_anchors_preset(PRESET_FULL_RECT)
+	label.set_anchors_preset(Control.PRESET_FULL_RECT)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.add_theme_color_override("font_color", Color.WHITE)
@@ -42,7 +42,7 @@ func _on_button_gui_input(event: InputEvent, btn: Control, action: String):
 
 func _enter_tree():
 	var dpad = Control.new()
-	dpad.set_anchors_preset(PRESET_BOTTOM_LEFT)
+	dpad.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
 	dpad.position = Vector2(20, -220)
 	add_child(dpad)
 	
@@ -54,7 +54,7 @@ func _enter_tree():
 	create_button("D", "walk_right", Vector2(140, 70), btn_size, c, dpad)
 	
 	var actions = Control.new()
-	actions.set_anchors_preset(PRESET_BOTTOM_RIGHT)
+	actions.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 	actions.position = Vector2(-220, -220)
 	add_child(actions)
 	
