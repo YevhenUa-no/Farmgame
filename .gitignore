@@ -1,0 +1,14 @@
+# Godot-specific ignores
+.godot/
+!/.godot/extension_list.cfg
+!/.godot/global_script_class_cache.cfg
+!/.godot/uid_cache.bin
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+build/
+export/

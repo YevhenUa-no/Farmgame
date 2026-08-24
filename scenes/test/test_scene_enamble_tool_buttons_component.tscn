@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxxuydl43casq"]
+
+[ext_resource type="Script" uid="uid://2xe6ska21ad5" path="res://scenes/test/test_scene_enamble_tool_buttons_component.gd" id="1_cbssh"]
+
+[node name="TestSceneEnambleToolButtonsComponent" type="Node" unique_id=1370470937]
+script = ExtResource("1_cbssh")

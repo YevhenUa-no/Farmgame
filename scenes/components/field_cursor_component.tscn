@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bcj211d7t0un7"]
+
+[ext_resource type="Script" uid="uid://cukrpn1rxn2pt" path="res://scenes/components/field_cursor_component.gd" id="1_f4nto"]
+
+[node name="FieldCursorComponent" type="Node" unique_id=453791546]
+script = ExtResource("1_f4nto")

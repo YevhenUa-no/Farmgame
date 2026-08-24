@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b4pf1os8gaf7x"]
+
+[ext_resource type="Texture2D" uid="uid://de8hmg0sxxpht" path="res://Assets/game/Objects/Basic_Plants.png" id="1_7h6ut"]
+[ext_resource type="PackedScene" uid="uid://b744lylpdvwo2" path="res://scenes/components/collactable_component.tscn" id="2_u4kuc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxuyq"]
+atlas = ExtResource("1_7h6ut")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crb5t"]
+radius = 3.5903182
+height = 14.983768
+
+[node name="CornCollectable" type="Sprite2D" unique_id=1074096164]
+texture = SubResource("AtlasTexture_qxuyq")
+
+[node name="CollactableComponent" parent="." unique_id=799827722 instance=ExtResource("2_u4kuc")]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 160
+collectable_name = "corn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollactableComponent" unique_id=1744901047]
+y_sort_enabled = true
+position = Vector2(1.7881393e-07, 1.1920929e-07)
+rotation = 0.8297707
+scale = Vector2(-1.1141074, 1.221585)
+shape = SubResource("CapsuleShape2D_crb5t")
