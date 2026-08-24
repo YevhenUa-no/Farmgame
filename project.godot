@@ -25,7 +25,6 @@ ToolManager="*uid://wgfk41ywy2wh"
 InventoryManager="*uid://drq5pgcdc7uiv"
 DayAndNightCycleManager="*uid://bdriyahyv1oyr"
 SaveGameManager="*uid://deamtwvqd2wph"
-DialogueManager="*uid://c3rodes2l3gxb"
 GameDialogueManager="*uid://cx2jkgo36c6in"
 GameManager="*uid://cafgixntdna8d"
 SceneManager="*uid://cyhsbmb84is38"
@@ -41,7 +40,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
