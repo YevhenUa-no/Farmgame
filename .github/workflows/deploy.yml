@@ -30,6 +30,7 @@ jobs:
         with:
           version: ${{ env.GODOT_VERSION }}
           use-dotnet: false
+          include-templates: true
 
       - name: Export Web
         run: |
