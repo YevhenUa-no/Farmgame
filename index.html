@@ -2,30 +2,47 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>New Game Project</title>
+		<!-- Added maximum-scale, minimum-scale, and viewport-fit=cover to prevent rubber-banding and handle notches -->
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+		
+		<!-- PWA and Mobile Web App Meta Tags -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="theme-color" content="#000000">
+		<meta name="description" content="Cross-platform HTML5 Farm/RPG Game">
+
+		<title>Farmgame</title>
 		<style>
+/* Reset and prevent default browser behaviors */
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	width: 100%;
+	height: 100%;
 }
 
 body {
 	color: white;
 	background-color: black;
-	overflow: hidden;
-	touch-action: none;
+	overflow: hidden; /* Prevent scrolling */
+	touch-action: none; /* Disable browser pinch-to-zoom and swipe gestures */
+	-webkit-user-select: none; /* Disable text selection highlighting on mobile */
+	user-select: none;
 }
 
 #canvas {
 	display: block;
+	/* Ensures the canvas doesn't stretch weirdly on different aspect ratios */
+	object-fit: contain;
 }
 
 #canvas:focus {
 	outline: none;
 }
 
+/* Splash and loading screens */
 #status, #status-splash, #status-progress {
 	position: absolute;
 	left: 0;
@@ -91,7 +108,7 @@ body {
 }
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
-<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+		<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
 
 	</head>
 	<body>
@@ -111,7 +128,8 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":4481596,"index.wasm":1509558},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+// Godot configuration - canvasResizePolicy:2 handles dynamic internal scaling.
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":3930120,"index.wasm":1509558},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -182,18 +200,15 @@ const engine = new Engine(GODOT_CONFIG);
 					}
 					return registration;
 				}).then(() => engine.installServiceWorker()),
-				// For some reason, `getRegistration()` can stall
 				new Promise((resolve) => {
 					setTimeout(() => resolve(), 2000);
 				}),
 			]).then(() => {
-				// Reload if there was no error.
 				window.location.reload();
 			}).catch((err) => {
 				console.error('Error while registering service worker:', err);
 			});
 		} else {
-			// Display the message as usual
 			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
 			displayFailureNotice(missingMsg + missing.join('\n'));
 		}
@@ -217,4 +232,3 @@ const engine = new Engine(GODOT_CONFIG);
 		</script>
 	</body>
 </html>
-
